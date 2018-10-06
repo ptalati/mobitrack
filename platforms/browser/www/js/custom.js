@@ -1,12 +1,21 @@
 document.addEventListener("deviceready", function () {
-    window.cache.clear( success, error );
-    
     if (navigator.network.connection.type == Connection.NONE) {
         $("#home_network_button").text('No Internet Access')
             .attr("data-icon", "delete")
             .button('refresh');
     }
+
+    var options = { enableHighAccuracy: true };
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 });
+
+function onSuccess(position) {
+    // alert("1");
+}
+
+function onError(error) {
+    alert("Error fetching location");
+}
 
 var track_id = '';      // Name/ID of the exercise
 var watch_id = null;    // ID of the geolocation
