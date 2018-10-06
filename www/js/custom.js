@@ -17,7 +17,17 @@ $("#startTracking_start").live('click', function () {
     watch_id = navigator.geolocation.watchPosition(
         // Success
         function (position) {
+            console.log(position);
             tracking_data.push(position);
+            $.ajax({
+				type: "POST",
+                url: "http://api.brainfeedsolutions.com/index.php?A=WEB&lat=" + position.coords.latitude +
+                    "&long=" + position.coords.longitude,
+				dataType: "json",
+				success: function(data) {
+					
+				}
+			});
         },
         // Error
         function (error) {
