@@ -45,10 +45,9 @@ $("#startTracking_start").live('click', function () {
                 'Longitude: ' + position.coords.longitude + 
                 '<br />' + element.innerHTML;
             $.ajax({
-				type: "POST",
+				type: "GET",
                 url: "http://api.brainfeedsolutions.com/index.php?A=WEB&lat=" + position.coords.latitude +
                     "&long=" + position.coords.longitude,
-				dataType: "json",
 				success: function(data) {
 					
                 },
