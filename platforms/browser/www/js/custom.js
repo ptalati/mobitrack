@@ -4,6 +4,21 @@ document.addEventListener("deviceready", function () {
             .attr("data-icon", "delete")
             .button('refresh');
     }
+
+    cordova.plugins.diagnostic.isLocationEnabled(
+        function (e) {
+            if (e) {
+                // successFunctionCall();
+            }
+            else {
+                alert("Location Not Turned ON");
+                cordova.plugins.diagnostic.switchToLocationSettings();
+            }
+        },
+        function (e) {
+            alert('Error ' + e);
+        }
+    );
 });
 
 $("#getPosition").live('click', function () {

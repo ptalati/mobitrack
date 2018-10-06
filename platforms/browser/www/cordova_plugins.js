@@ -28,7 +28,8 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-geolocation": "4.0.1",
-    "cordova-plugin-network-information": "2.0.1"
+    "cordova-plugin-network-information": "2.0.1",
+    "cordova.plugins.diagnostic": "3.9.2"
 }
 // BOTTOM OF METADATA
 });
