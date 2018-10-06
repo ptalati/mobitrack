@@ -37,14 +37,15 @@
 
     <!-- Plugins -->
     <!-- Core plugins -->
-    <plugin name="cordova-plugin-geolocation" />
+    <plugin name="cordova-plugin-geolocation" spec="~4">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="This app uses your location for maps." />
+    </plugin>
     <plugin name="cordova-plugin-network-information" />
     
     <!-- Third party plugins -->
 
     <access origin="*" />
 
-    <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
