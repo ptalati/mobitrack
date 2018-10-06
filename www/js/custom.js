@@ -44,18 +44,6 @@ $("#startTracking_start").live('click', function () {
             element.innerHTML = 'Latitude: ' + position.coords.latitude + ' AND ' +
                 'Longitude: ' + position.coords.longitude + 
                 '<br />' + element.innerHTML;
-            $.ajax({
-				type: "GET",
-                url: "http://api.brainfeedsolutions.com/index.php?A=WEB&lat=" + position.coords.latitude +
-                    "&long=" + position.coords.longitude,
-				success: function(data) {
-					
-                },
-                error: function() {
-                    alert("Error sending data to api." + "http://api.brainfeedsolutions.com/index.php?A=WEB&lat=" + position.coords.latitude +
-                    "&long=" + position.coords.longitude);
-                }
-			});
         },
         // Error
         function (error) {
