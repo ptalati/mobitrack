@@ -4,22 +4,6 @@ document.addEventListener("deviceready", function () {
             .attr("data-icon", "delete")
             .button('refresh');
     }
-
-    cordova.plugins.diagnostic.isLocationEnabled(
-        function (e) {
-            if (e) {
-                alert("Location Turned ON");
-                // successFunctionCall();
-            }
-            else {
-                alert("Location Not Turned ON");
-                cordova.plugins.diagnostic.switchToLocationSettings();
-            }
-        },
-        function (e) {
-            alert('Error ' + e);
-        }
-    );
 });
 
 $("#getPosition").live('click', function () {
@@ -44,30 +28,6 @@ $("#getPosition").live('click', function () {
        alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
     }
  });
- 
- $("#watchPosition").live('click', function () {
-    var options = {
-       maximumAge: 3600000,
-       timeout: 3000,
-       enableHighAccuracy: true,
-    }
-    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
- 
-    function onSuccess(position) {
-       alert('Latitude: '          + position.coords.latitude          + '\n' +
-          'Longitude: '         + position.coords.longitude         + '\n' +
-          'Altitude: '          + position.coords.altitude          + '\n' +
-          'Accuracy: '          + position.coords.accuracy          + '\n' +
-          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-          'Heading: '           + position.coords.heading           + '\n' +
-          'Speed: '             + position.coords.speed             + '\n' +
-          'Timestamp: '         + position.timestamp                + '\n');
-    };
- 
-    function onError(error) {
-       alert('code: '    + error.code    + '\n' +'message: ' + error.message + '\n');
-    }
-});
 
 var track_id = '';      // Name/ID of the exercise
 var watch_id = null;    // ID of the geolocation
@@ -91,7 +51,11 @@ $("#startTracking_start").live('click', function () {
 				dataType: "json",
 				success: function(data) {
 					
-				}
+                },
+                error: function() {
+                    alert("Error sending data to api." + "http://api.brainfeedsolutions.com/index.php?A=WEB&lat=" + position.coords.latitude +
+                    "&long=" + position.coords.longitude);
+                }
 			});
         },
         // Error
