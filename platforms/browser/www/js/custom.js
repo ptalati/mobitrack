@@ -19,6 +19,10 @@ $("#startTracking_start").live('click', function () {
         function (position) {
             console.log(position);
             tracking_data.push(position);
+            var element = document.getElementById('startTracking_debug');
+            element.innerHTML = 'Latitude: ' + position.coords.latitude + ' AND ' +
+                'Longitude: ' + position.coords.longitude + 
+                '<br />' + element.innerHTML;
             $.ajax({
 				type: "POST",
                 url: "http://api.brainfeedsolutions.com/index.php?A=WEB&lat=" + position.coords.latitude +
