@@ -4,18 +4,54 @@ document.addEventListener("deviceready", function () {
             .attr("data-icon", "delete")
             .button('refresh');
     }
-
-    var options = { enableHighAccuracy: true };
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 });
 
-function onSuccess(position) {
-    // alert("1");
-}
-
-function onError(error) {
-    alert("Error fetching location");
-}
+$("#getPosition").live('click', function () {
+    var options = {
+       enableHighAccuracy: true,
+       maximumAge: 3600000
+    }
+    var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+ 
+    function onSuccess(position) {
+       alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n' +
+          'Altitude: '          + position.coords.altitude          + '\n' +
+          'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + position.coords.heading           + '\n' +
+          'Speed: '             + position.coords.speed             + '\n' +
+          'Timestamp: '         + position.timestamp                + '\n');
+    };
+ 
+    function onError(error) {
+       alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+    }
+ });
+ 
+ $("#watchPosition").live('click', function () {
+    var options = {
+       maximumAge: 3600000,
+       timeout: 3000,
+       enableHighAccuracy: true,
+    }
+    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+ 
+    function onSuccess(position) {
+       alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n' +
+          'Altitude: '          + position.coords.altitude          + '\n' +
+          'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + position.coords.heading           + '\n' +
+          'Speed: '             + position.coords.speed             + '\n' +
+          'Timestamp: '         + position.timestamp                + '\n');
+    };
+ 
+    function onError(error) {
+       alert('code: '    + error.code    + '\n' +'message: ' + error.message + '\n');
+    }
+});
 
 var track_id = '';      // Name/ID of the exercise
 var watch_id = null;    // ID of the geolocation
