@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        
+        <title>MobiTrack</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="home">
+            <div data-role="header">
+                <h1>MobiTrack</h1>
+        
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+                        <li><a href="#startTracking" data-transition="none" data-icon="plus">Track Workout</a></li>
+                        <li><a href="#history" data-transition="none" data-icon="star">History</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div data-role="content">
+                <p>Welcome to the <em>MobiTrack</em> app. By clicking <em>Track Workout</em> you can record your workouts using the GPS feature on your phone. Learn how to build this app by reading <em>mobile.tutsplus.com</em>.</p>
+                <button id="home_network_button" data-icon="check">Internet Access Enabled</button>
+                <button id="home_clearstorage_button">Clear local storage</button>
+                <button id="home_seedgps_button">Load Seed GPS Data</button>
+            </div>
+        </div>
+    </body>
+</html>
