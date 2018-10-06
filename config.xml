@@ -37,8 +37,8 @@
 
     <!-- Plugins -->
     <!-- Core plugins -->
-    <gap:plugin name="org.apache.cordova.geolocation" />
-    <gap:plugin name="org.apache.cordova.network-information" />
+    <plugin name="cordova-plugin-geolocation" />
+    <plugin name="cordova-plugin-network-information" />
     
     <!-- Third party plugins -->
 
