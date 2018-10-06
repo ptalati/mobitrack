@@ -8,6 +8,7 @@ document.addEventListener("deviceready", function () {
     cordova.plugins.diagnostic.isLocationEnabled(
         function (e) {
             if (e) {
+                alert("Location Turned ON");
                 // successFunctionCall();
             }
             else {

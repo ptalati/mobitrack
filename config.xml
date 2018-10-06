@@ -38,9 +38,7 @@
     <!-- Plugins -->
     <!-- Core plugins -->
     <plugin name="cordova.plugins.diagnostic" source="npm" />
-    <plugin name="cordova-plugin-geolocation" spec="~4">
-        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="This app uses your location for maps." />
-    </plugin>
+    <plugin name="cordova-plugin-geolocation" version="2.1.0" />
     <plugin name="cordova-plugin-network-information" />
     
     <!-- Third party plugins -->
