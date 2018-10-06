@@ -78,9 +78,7 @@ $('#history').live('pageshow', function () {
 });
 
 $("#history_tracklist li a").live('click', function () {
-
     $("#track_info").attr("track_id", $(this).text());
-
 });
 
 // When the user views the Track Info page
@@ -101,7 +99,6 @@ $('#track_info').live('pageshow', function () {
     total_km = 0;
 
     for (i = 0; i < data.length; i++) {
-
         if (i == (data.length - 1)) {
             break;
         }
